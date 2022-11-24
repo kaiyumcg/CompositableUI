@@ -5,6 +5,7 @@
         "Unity.TextMeshPro",
         "Textus.SerializeReferenceUI",
         "UnityExt",
+        "DoTweenExt",
         "DOTween.Modules"
     ],
     "includePlatforms": [],
