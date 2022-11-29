@@ -2,9 +2,9 @@
     "name": "CompositableUI",
     "rootNamespace": "",
     "references": [
-        "Unity.TextMeshPro",
-        "Textus.SerializeReferenceUI",
+        "AttributeExt",
         "UnityExt",
+        "Unity.TextMeshPro",
         "DoTweenExt",
         "DOTween.Modules"
     ],
