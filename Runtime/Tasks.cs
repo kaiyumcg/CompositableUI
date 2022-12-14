@@ -207,7 +207,7 @@ namespace CompositableUI
         [SerializeField] List<MaskableGraphic> graphics;
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
-            graphics.ExForEach((g) => { g.color = color; });
+            graphics.ExForEachSafe((g) => { g.color = color; });
             tweens = new List<Tween>();
         }
     }
@@ -233,7 +233,7 @@ namespace CompositableUI
         [SerializeField] List<MaskableGraphic> graphics;
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
-            graphics.ExForEach((g) => { g.color = color; });
+            graphics.ExForEachSafe((g) => { g.color = color; });
             tweens = new List<Tween>();
             OnComplete?.Invoke();
         }
@@ -289,7 +289,7 @@ namespace CompositableUI
         [SerializeField] List<Behaviour> unityComponents;
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
-            unityComponents.ExForEach((com) => { com.enabled = appear; });
+            unityComponents.ExForEachSafe((com) => { com.enabled = appear; });
             tweens = new List<Tween>();
         }
     }
@@ -315,7 +315,7 @@ namespace CompositableUI
         [SerializeField] List<MonoBehaviour> scripts;
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
-            scripts.ExForEach((com) => { com.enabled = appear; });
+            scripts.ExForEachSafe((com) => { com.enabled = appear; });
             tweens = new List<Tween>();
         }
     }
@@ -371,7 +371,7 @@ namespace CompositableUI
         [SerializeField] List<Behaviour> unityComponents;
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
-            unityComponents.ExForEach((com) => { com.enabled = appear; });
+            unityComponents.ExForEachSafe((com) => { com.enabled = appear; });
             tweens = new List<Tween>();
             OnComplete?.Invoke();
         }
@@ -399,7 +399,7 @@ namespace CompositableUI
         [SerializeField] List<MonoBehaviour> scripts;
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
-            scripts.ExForEach((com) => { com.enabled = appear; });
+            scripts.ExForEachSafe((com) => { com.enabled = appear; });
             tweens = new List<Tween>();
             OnComplete?.Invoke();
         }
@@ -499,7 +499,7 @@ namespace CompositableUI
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
             tws.ExResetDT();
-            transforms.ExForEach((t) => { t.localScale = from * Vector3.one; });
+            transforms.ExForEachSafe((t) => { t.localScale = from * Vector3.one; });
             tws = transforms.ExScale(to * Vector3.one, within);
             tweens = tws;
         }
@@ -532,7 +532,7 @@ namespace CompositableUI
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
             tws.ExResetDT();
-            transforms.ExForEach((t) => { t.localScale = from * Vector3.one; });
+            transforms.ExForEachSafe((t) => { t.localScale = from * Vector3.one; });
             tws = transforms.ExScale(to * Vector3.one, within, runner, OnComplete);
             tweens = tws;
         }
@@ -565,7 +565,7 @@ namespace CompositableUI
         [SerializeField] List<Transform> transforms;
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
-            transforms.ExForEach((t) =>
+            transforms.ExForEachSafe((t) =>
             {
                 t.localPosition = position;
                 t.localEulerAngles = rotation;
@@ -598,7 +598,7 @@ namespace CompositableUI
         [SerializeField] List<Transform> transforms;
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
-            transforms.ExForEach((t) =>
+            transforms.ExForEachSafe((t) =>
             {
                 t.localPosition = position;
                 t.localEulerAngles = rotation;
@@ -635,7 +635,7 @@ namespace CompositableUI
         [SerializeField] List<Transform> transforms;
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
-            transforms.ExForEach((t) =>
+            transforms.ExForEachSafe((t) =>
             {
                 t.localScale = Vector3.one * setScale;
             });
@@ -664,7 +664,7 @@ namespace CompositableUI
         [SerializeField] List<Transform> transforms;
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
-            transforms.ExForEach((t) =>
+            transforms.ExForEachSafe((t) =>
             {
                 t.localScale = Vector3.one * setScale;
             });
@@ -699,7 +699,7 @@ namespace CompositableUI
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
             tws.ExResetDT();
-            transforms.ExForEach((t) => { t.gameObject.SetActive(true); });
+            transforms.ExForEachSafe((t) => { t.gameObject.SetActive(true); });
             tws = transforms.ExScale(appearScale * Vector3.one, UICompositeConst.defaultTweenAnimationTime);
             tweens = tws;
         }
@@ -732,7 +732,7 @@ namespace CompositableUI
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
             tws.ExResetDT();
-            transforms.ExForEach((t) => { t.gameObject.SetActive(true); });
+            transforms.ExForEachSafe((t) => { t.gameObject.SetActive(true); });
             tws = transforms.ExScale(Vector3.one * appearScale, UICompositeConst.defaultTweenAnimationTime, runner, OnComplete);
             tweens = tws;
         }
@@ -766,7 +766,7 @@ namespace CompositableUI
         void IUICompositableTask.Execute(ref List<Tween> tweens)
         {
             tws.ExResetDT();
-            transforms.ExForEach((t) => { t.gameObject.SetActive(true); });
+            transforms.ExForEachSafe((t) => { t.gameObject.SetActive(true); });
             tws = transforms.ExScale(Vector3.zero, UICompositeConst.defaultTweenAnimationTime);
             tweens = tws;
         }
@@ -797,7 +797,7 @@ namespace CompositableUI
         void IUICompositableTaskAsync.Execute(ref List<Tween> tweens, MonoBehaviour runner, System.Action OnComplete)
         {
             tws.ExResetDT();
-            transforms.ExForEach((t) => { t.gameObject.SetActive(true); });
+            transforms.ExForEachSafe((t) => { t.gameObject.SetActive(true); });
             tws = transforms.ExScale(Vector3.zero, UICompositeConst.defaultTweenAnimationTime, runner, OnComplete);
             tweens = tws;
         }

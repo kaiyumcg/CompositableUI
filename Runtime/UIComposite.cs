@@ -18,7 +18,7 @@ namespace CompositableUI
         {
             tws.ExResetDT();
             var lst = new List<Tween>();
-            works.ExForEach((w) =>
+            works.ExForEachSafe((w) =>
             {
                 var l = new List<Tween>();
                 w.Execute(ref l);
@@ -39,7 +39,7 @@ namespace CompositableUI
             var validCount = works.ExNotNullCount();
             int completedCount = 0;
             var lst = new List<Tween>();
-            works.ExForEach((w) =>
+            works.ExForEachSafe((w) =>
             {
                 var l = new List<Tween>();
                 w.Execute(ref l, runner, () =>
@@ -120,7 +120,7 @@ namespace CompositableUI
         {
             tws.ExResetDT();
             var lst = new List<Tween>();
-            works.ExForEach((w) =>
+            works.ExForEachSafe((w) =>
             {
                 var l = new List<Tween>();
                 if (w.TypeID == typeID)
@@ -144,7 +144,7 @@ namespace CompositableUI
             var validCount = works.ExNotNullCount();
             int completedCount = 0;
             var lst = new List<Tween>();
-            works.ExForEach((w) =>
+            works.ExForEachSafe((w) =>
             {
                 var l = new List<Tween>();
                 if (w.TypeID == typeID)
