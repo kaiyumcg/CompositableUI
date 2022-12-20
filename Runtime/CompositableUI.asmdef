@@ -2,7 +2,7 @@
     "name": "CompositableUI",
     "rootNamespace": "",
     "references": [
-        "AttributeExt",
+        "AttributeExt2",
         "UnityExt",
         "Unity.TextMeshPro",
         "DoTweenExt",

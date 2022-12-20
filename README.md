@@ -4,7 +4,7 @@ A plug and play way of doing UI programming
 #### Installation:
 * Add the following entries in your manifest.json as follows:
 ```C#
-"com.kaiyum.attributeext" : "https://github.com/kaiyumcg/AttributeExt.git",
+"com.kaiyum.attributeext2": "https://github.com/kaiyumcg/NaughtyAttributes",
 "com.kaiyum.unityext": "https://github.com/kaiyumcg/UnityExt.git",
 "com.kaiyum.editorutil": "https://github.com/kaiyumcg/EditorUtil.git"
 ```
