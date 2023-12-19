@@ -18,7 +18,7 @@ namespace CompositableUI
         {
             tws.ExResetDT();
             var lst = new List<Tween>();
-            works.ExForEachSafe((w) =>
+            works.ExForEachSafeCustomClass((w) =>
             {
                 var l = new List<Tween>();
                 w.Execute(ref l);
@@ -36,10 +36,10 @@ namespace CompositableUI
         public void Execute(ref List<Tween> tweens, MonoBehaviour runner, Action OnComplete)
         {
             tws.ExResetDT();
-            var validCount = works.ExNotNullCount();
+            var validCount = works.ExNotNullCountCustomClass();
             int completedCount = 0;
             var lst = new List<Tween>();
-            works.ExForEachSafe((w) =>
+            works.ExForEachSafeCustomClass((w) =>
             {
                 var l = new List<Tween>();
                 w.Execute(ref l, runner, () =>
@@ -120,7 +120,7 @@ namespace CompositableUI
         {
             tws.ExResetDT();
             var lst = new List<Tween>();
-            works.ExForEachSafe((w) =>
+            works.ExForEachSafeCustomClass((w) =>
             {
                 var l = new List<Tween>();
                 if (w.TypeID == typeID)
@@ -141,10 +141,10 @@ namespace CompositableUI
         public void Execute(string typeID, ref List<Tween> tweens, MonoBehaviour runner, Action OnComplete)
         {
             tws.ExResetDT();
-            var validCount = works.ExNotNullCount();
+            var validCount = works.ExNotNullCountCustomClass();
             int completedCount = 0;
             var lst = new List<Tween>();
-            works.ExForEachSafe((w) =>
+            works.ExForEachSafeCustomClass((w) =>
             {
                 var l = new List<Tween>();
                 if (w.TypeID == typeID)
